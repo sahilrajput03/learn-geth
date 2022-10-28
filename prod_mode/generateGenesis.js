@@ -1,6 +1,6 @@
-let [_, __, acc1, acc2] = process.argv
+let [_, __, acc1, acc2, acc3] = process.argv
 
-if(!acc1 || !acc2) {
+if(!acc1 || !acc2 || !acc3) {
 	console.log('Please provide atleast two addresses as arguments')
 	return 
 }
@@ -14,7 +14,7 @@ const writeFile = (fileName, data) => { return fs.writeFileSync(fileName, JSON.s
 
 const genesis = {
 	config: {
-		chainId: 12345,
+		chainId: 1337,
 		homesteadBlock: 0,
 		eip150Block: 0,
 		eip155Block: 0,
@@ -34,8 +34,9 @@ const genesis = {
 	extradata:
 		`0x0000000000000000000000000000000000000000000000000000000000000000${acc1}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`,
 	alloc: {
-		[acc1]: {balance: '1000000000000000000000'},
-		[acc2]: {balance: '1000000000000000000000'},
+		[acc1]: {balance: '2100000000000000000000'},
+		[acc2]: {balance: '2100000000000000000000'},
+		[acc3]: {balance: '2100000000000000000000'},
 	},
 }
 

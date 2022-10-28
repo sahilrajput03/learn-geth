@@ -1,5 +1,7 @@
 # Using geth - short notes
 
+UPDATE: I am failing to make any transaction but there's error i.e, "peer connected on snap without compatible eth support" and it seems becoz of that I am not able to make any transactions but reads work like checking balance and conneciton to metamask also works. And deployement with hardhat starts but contracts never get deployed.
+
 Source: https://geth.ethereum.org/docs/interface/private-network
 
 ```js
@@ -64,7 +66,6 @@ personal.unlockAccount(eth.accounts[0])
 //check the transaction was successful by querying Node 2's account balance
 eth.getBalance("0x0622A967DE34b3D19f191A6edFA8bBa4c051c530")
 
-// NEED TO RESEARCH ERROR ~Sahil: "Error: intrinsic gas too low at web3.js:6365:9(45)" in javascript console of the node
-// send some Wei
-eth.sendTransaction({to: "0x0622A967DE34b3D19f191A6edFA8bBa4c051c530", from: eth.accounts[0], value: 1, gas: 30, gasPrice: 20})
+// send 1 ether
+eth.sendTransaction({to: eth.accounts[1], from: eth.accounts[0], value: 1000000000000000000, gas: 300000, gasPrice: 200000})
 ```
