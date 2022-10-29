@@ -1,6 +1,6 @@
-let [_, __, acc1, acc2, acc3] = process.argv
+let [_, __, acc1, acc2, acc3, acc4] = process.argv
 
-if(!acc1 || !acc2 || !acc3) {
+if(!acc1 || !acc2 || !acc3 || !acc4) {
 	console.log('Please provide atleast two addresses as arguments')
 	return 
 }
@@ -8,6 +8,8 @@ if(!acc1 || !acc2 || !acc3) {
 // remove 0x from the addresses
 acc1 = acc1.slice(2)
 acc2 = acc2.slice(2)
+acc3 = acc3.slice(2)
+acc4 = acc4.slice(2)
 
 const fs = require('fs')
 const writeFile = (fileName, data) => { return fs.writeFileSync(fileName, JSON.stringify(data, null, 4)) }
@@ -37,6 +39,7 @@ const genesis = {
 		[acc1]: {balance: '2100000000000000000000'},
 		[acc2]: {balance: '2100000000000000000000'},
 		[acc3]: {balance: '2100000000000000000000'},
+		[acc4]: {balance: '2100000000000000000000'},
 	},
 }
 
