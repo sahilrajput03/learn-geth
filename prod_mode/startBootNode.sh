@@ -19,12 +19,13 @@ geth account import --datadir bootNode --password ./my_password.txt dev_accounts
 # initialize geth db with genesis.json
 geth init --datadir bootNode genesis.json
 
-# src: https://ethereum.stackexchange.com/a/23268/106687
-# I was not able to unlock all addreses via provided way from geth i.e., `--unlock "addr1,addr2,addr3,addr4"` and I can't figure out to do it here, so I am unlocking account 2,3,4 when I start mining in the script i.e, `startMiningNode1.sh` by attaching to bootNode, Yo! ~Sahil
 
 # START GETH, complete cli options: https://geth.ethereum.org/docs/interface/command-line-options
 # start on hardhat like port i.e., 8545 (by default http server is run on port 8545 though, FYI: default ethereum mainnet port is 9545)
 geth --syncmode=snap --snapshot=false --datadir bootNode --networkid 1337 --allow-insecure-unlock --unlock $addr1 --password ./my_password.txt --http
+##### I WAS NOT ABLE TO UNLOCK ALL ADDRESES VIA PROVIDED WAY FROM GETH i.e., `--unlock "addr1,addr2,addr3,addr4"` and I can't figure out to do it here, so I am unlocking account 2,3,4 when I start mining in the script i.e, `startMiningNode1.sh` by attaching to bootNode, Yo! ~Sahil
+##### SRC: https://ethereum.stackexchange.com/a/23268/106687
+##### geth --syncmode=snap --snapshot=false --datadir bootNode --networkid 1337 --allow-insecure-unlock --unlock $addr1,$addr2,$addr3,$addr4 --password ./my_password.txt --http
 
 # start on truffle like port i.e., 9545
 # geth --syncmode=snap --snapshot=false --datadir bootNode --networkid 1337 --allow-insecure-unlock --unlock $addr1 --password ./my_password.txt --http --http.port 9545
