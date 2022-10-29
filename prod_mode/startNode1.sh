@@ -9,4 +9,3 @@ rm -rf node1
 geth account import --datadir node1 --password ./my_password.txt trufflePrivKeys/d1.txt
 geth init --datadir node1 genesis.json
 geth --snapshot=false --datadir node1 --port 30306 --bootnodes "$@" --authrpc.port 8552 --networkid 1337 --allow-insecure-unlock --unlock $addr1 --password ./my_password.txt
-echo hellobello_____

@@ -15,7 +15,8 @@ geth init --datadir bootNode genesis.json
 # START GETH, complete cli options: https://geth.ethereum.org/docs/interface/command-line-options
 # start on hardhat like port i.e., 8545
 
-geth --syncmode=snap --snapshot=false --datadir bootNode --networkid 1337 --allow-insecure-unlock --http
+addr1="0xF1C8471dF8772D9ACE6fa116d5C5f077A3b7AFe6"
+geth --syncmode=snap --snapshot=false --datadir bootNode --networkid 1337 --allow-insecure-unlock --unlock $addr1 --password ./my_password.txt --http
 
 # start on truffle like port i.e., 9545
 # geth --snapshot=false --datadir bootNode --networkid 12345 --allow-insecure-unlock --http --http.port 9545
