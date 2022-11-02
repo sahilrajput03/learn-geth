@@ -69,3 +69,23 @@ eth.getBalance("0x0622A967DE34b3D19f191A6edFA8bBa4c051c530")
 // send 1 ether
 eth.sendTransaction({to: eth.accounts[1], from: eth.accounts[0], value: 1000000000000000000, gas: 300000, gasPrice: 200000})
 ```
+
+## Unlock account using javascript console so that you can deploy contracts with hardhat and truffle:
+
+**Two ways of unlocking accounts:** src: https://ethereum.stackexchange.com/a/4159/106687
+
+1. `geth --unlock <YOUR_ACCOUNT_ADDRESS> --password <YOUR_PASSWORD>`
+
+2. Using javascript console, i.e, `geth attach` console:
+
+```js
+
+// Unlock for a time limit
+// personal.unlockAccount(personal.listAccounts[0], "1", 300) // for 5 minutes
+
+// Unlock till geth server is closed
+personal.unlockAccount(personal.listAccounts[0], "1", 0)
+```
+
+## Account management with geth:
+https://geth.ethereum.org/docs/interface/managing-your-accounts#:~:text=Import%20a%20keyfile&text=In%20this%20case%2C%20the%20private,text%20key%20without%20leading%200x).
